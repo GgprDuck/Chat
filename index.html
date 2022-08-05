@@ -337,6 +337,7 @@
      const input = document.getElementById('message-to-send');
      const button = document.getElementById('button');
      const chatHistory = document.getElementById('data');
+     const button2 = document.getElementById('button2');
 
 
        button.addEventListener('click', (event) => {
@@ -344,6 +345,12 @@
         socket.emit('chat message', name +": "+ input.value);
         input.value = '';
         }
+     });
+
+     button.addEventListener('click',(event,names) =>{
+        let name = prompt("Enter your name",'...');
+      names[names.length] = socket;
+      names.push({name:name, status:'on'});
      });
         
         socket.on('chat message', function(msg) {

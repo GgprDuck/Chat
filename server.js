@@ -13,9 +13,6 @@ let names =[];
 
 io.on('connection', (socket) => {
       console.log('a user connected');
-      let name = prompt("Enter your name",'...');
-      names[names.length] = socket;
-      names.push({name:name, status:'on'});
 
     socket.on('chat message', (msg) => {
       io.emit('chat message', msg);
